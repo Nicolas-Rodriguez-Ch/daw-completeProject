@@ -1,0 +1,111 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database for ms-vehicles
+  postgres:
+    image: postgres:17
+    container_name: vehicles-db
+    environment:
+      POSTGRES_DB: vehicles_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - vehicles_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d vehicles_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - microservices-network
+
+  # Eureka Service Registry
+  eureka:
+    build:
+      context: ./eureka
+      dockerfile: Dockerfile
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - postgres
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/eureka"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ms-vehicles Microservice
+  ms-vehicles:
+    build:
+      context: ./ms-vehicles
+      dockerfile: Dockerfile
+    container_name: ms-vehicles
+    ports:
+      - "8088:8088"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/vehicles_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:8761/eureka
+      EUREKA_INSTANCE_HOSTNAME: ms-vehicles
+    depends_on:
+      postgres:
+        condition: service_healthy
+      eureka:
+        condition: service_started
+    networks:
+      - microservices-network
+
+  # ms-operations Microservice
+  ms-operations:
+    build:
+      context: ./ms-operations
+      dockerfile: Dockerfile
+    container_name: ms-operations
+    ports:
+      - "8082:8082"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:8761/eureka
+      EUREKA_INSTANCE_HOSTNAME: ms-operations
+    depends_on:
+      eureka:
+        condition: service_started
+    networks:
+      - microservices-network
+
+  # API Gateway Microservice
+  apigw:
+    build:
+      context: ./apigw
+      dockerfile: Dockerfile
+    container_name: apigw
+    ports:
+      - "8762:8762"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:8761/eureka
+      EUREKA_INSTANCE_HOSTNAME: apigw
+    depends_on:
+      eureka:
+        condition: service_started
+      ms-operations:
+        condition: service_started
+      ms-vehicles:
+        condition: service_started
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
+
+volumes:
+  vehicles_data:
+    driver: local
+

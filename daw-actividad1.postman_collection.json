@@ -1,0 +1,822 @@
+{
+  "info": {
+    "_postman_id": "e4804312-4830-4d3c-b060-5aadf9fd0e6f",
+    "name": "daw-actividad1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "13473689",
+    "_collection_link": "https://go.postman.co/collection/13473689-e4804312-4830-4d3c-b060-5aadf9fd0e6f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "operations direct",
+      "item": [
+        {
+          "name": "Create reservation",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vehicle\": {\r\n    \"id\": 1\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/create-reservation",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "create-reservation"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update availability",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vehicle\": {\r\n    \"id\": 1\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/update-availability",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "update-availability"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancel reservation",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vehicle\": {\r\n    \"id\": 1\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/cancel-reservation",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "cancel-reservation"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "apigetway",
+      "item": [
+        {
+          "name": "local",
+          "item": [
+            {
+              "name": "operations",
+              "item": [
+                {
+                  "name": "Create reservation from apigw",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"vehicle\": {\r\n    \"id\": 1\r\n  }\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:8762/ms-operations/create-reservation",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-operations",
+                        "create-reservation"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update reservation from apigw",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"vehicle\": {\r\n    \"id\": 1,\r\n    \"status\": true\r\n  }\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:8762/ms-operations/update-availability",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-operations",
+                        "update-availability"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Cancel reservation from apigw",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"vehicle\": {\r\n    \"id\": 1\r\n  }\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:8762/ms-operations/cancel-reservation",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-operations",
+                        "cancel-reservation"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "vehicles",
+              "item": [
+                {
+                  "name": "Create new vehicle",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"status\": true\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get all vehicles",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicle by id",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles/id/1",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicles by brand",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles/brand/Toyota",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles",
+                        "brand",
+                        "Toyota"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicles by model",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles/model/Corolla",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles",
+                        "model",
+                        "Corolla"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicles by status",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles/status/true",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles",
+                        "status",
+                        "true"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update vehicle",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"brand\": \"Honda\",\n    \"model\": \"Civic\",\n    \"status\": true\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles/id/1",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update vehicle status",
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles/id/1/status?status=false",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "key": "status",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "delete vehicle",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8088/api/vehicles/id/1",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8088",
+                      "path": [
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Deployment",
+          "item": [
+            {
+              "name": "operations",
+              "item": [
+                {
+                  "name": "create reservarion from apigw deployed",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"vehicle\": {\n        \"id\": 1\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-operations/create-reservation",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-operations",
+                        "create-reservation"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update reservarion from apigw deployed",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"vehicle\": {\n      \"id\": 1,\n      \"status\": false\n    }\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-operations/update-availability",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-operations",
+                        "update-availability"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "cancel reservarion from apigw deployed",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"vehicle\": {\n      \"id\": 1\n    }\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-operations/cancel-reservation",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-operations",
+                        "cancel-reservation"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "vehicles",
+              "item": [
+                {
+                  "name": "gel all vehicles from apigw deployed",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "create vehicle from apigw deployed",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"brand\": \"BYD\",\n    \"model\": \"Seagull\",\n    \"status\": true\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicle by id from apigw deployed",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles/id/1",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicle by brand from apigw deployed",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles/brand/BYD",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles",
+                        "brand",
+                        "BYD"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicle by model from apigw deployed",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles/model/Seagull",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles",
+                        "model",
+                        "Seagull"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "get vehicle by status from apigw deployed",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles/status/true",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles",
+                        "status",
+                        "true"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update vehicle from apigw deployed",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"brand\": \"Honda\",\n    \"model\": \"Civic\",\n    \"status\": true\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles/id/1",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "update vehicle status from apigw deployed",
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles/id/1/status/false",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1",
+                        "status",
+                        "false"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "delete vehicle status from apigw deployed",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "http://98.86.223.68:8762/ms-vehicles/api/vehicles/id/1",
+                      "protocol": "http",
+                      "host": [
+                        "98",
+                        "86",
+                        "223",
+                        "68"
+                      ],
+                      "port": "8762",
+                      "path": [
+                        "ms-vehicles",
+                        "api",
+                        "vehicles",
+                        "id",
+                        "1"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

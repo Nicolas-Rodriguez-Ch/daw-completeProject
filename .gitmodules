@@ -1,0 +1,12 @@
+[submodule "ms-vehicles"]
+	path = ms-vehicles
+	url = https://github.com/Koervege/ms-vehicles
+[submodule "apigw"]
+	path = apigw
+	url = https://github.com/Nicolas-Rodriguez-Ch/daw-apigw
+[submodule "eureka"]
+	path = eureka
+	url = https://github.com/Nicolas-Rodriguez-Ch/daw-eureka
+[submodule "ms-operations"]
+	path = ms-operations
+	url = https://github.com/Nicolas-Rodriguez-Ch/daw-ms-operations
